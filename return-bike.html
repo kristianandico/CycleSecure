@@ -28,9 +28,9 @@
             padding: 20px; /* Adjust padding as needed */
             border-radius: 12px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-            max-width: none;
-            /*width: 95vw; /* Set a responsive width */
-            height: 97vh; /* Set a responsive height */
+            max-width: 100%;
+            margin: 20px;
+            height: auto; /* Adjust height based on content */
             box-sizing: border-box;
             border: 1px solid #ddd;
             overflow: auto; /* Allow scrolling if content overflows */
@@ -45,17 +45,26 @@
         
         form {
             display: flex;
-            flex-wrap: wrap; /* Allow fields to wrap to the next line if necessary */
+            flex-direction: column;
             gap: 15px; /* Space between fields */
-            justify-content: center; /* Center fields horizontally */
             width: 100%;
-            height: 100%;
         }
         
         .form-group {
             display: flex;
             flex-direction: column;
-            width: calc(25% - 15px); /* Adjust width for horizontal layout and gap */
+            width: 100%;
+        }
+        
+        .form-group.row {
+            display: flex;
+            flex-direction: row;
+            gap: 15px; /* Space between fields */
+            align-items: center;
+        }
+        
+        .form-group.row > div {
+            flex: 1;
             min-width: 200px; /* Minimum width to ensure fields are readable */
         }
         
@@ -120,7 +129,6 @@
             background-color: #c82333;
             transform: translateY(-2px);
         }
-        
     </style>
 </head>
 <body>
@@ -128,23 +136,30 @@
         <h2>Return a Bike</h2>
         <form action="return_bike.php" method="post">
             <div class="form-group">
-                <label for="rfid_tag">RFID Tag:</label>
-                <input type="text" id="rfid_tag" name="rfid_tag" required>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
             </div>
 
-            <div class="form-group">
-                <label for="return_date">Return Date:</label>
-                <input type="date" id="return_date" name="return_date" required>
-            </div>
+            <div class="form-group row">
+                <div>
+                    <label for="rfid_tag">RFID Tag:</label>
+                    <input type="text" id="rfid_tag" name="rfid_tag" required>
+                </div>
 
-            <div class="form-group">
-                <label for="return_time">Return Time:</label>
-                <input type="time" id="return_time" name="return_time" required>
+                <div>
+                    <label for="return_date">Return Date:</label>
+                    <input type="date" id="return_date" name="return_date" required>
+                </div>
+
+                <div>
+                    <label for="return_time">Return Time:</label>
+                    <input type="time" id="return_time" name="return_time" required>
+                </div>
             </div>
 
             <div class="form-group">
                 <label for="comments">Comments:</label>
-                <textarea id="comments" name="comments" rows="8"></textarea>
+                <textarea id="comments" name="comments" rows="5"></textarea>
             </div>
 
             <div class="button-group">

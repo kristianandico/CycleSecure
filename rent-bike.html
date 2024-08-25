@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
-                background: linear-gradient(135deg, #f0f4f8 30%, #e2e6ea 100%), url('images/background-pattern.png');
-                background-size: cover;
+            background: linear-gradient(135deg, #f0f4f8 30%, #e2e6ea 100%), url('images/background-pattern.png');
+            background-size: cover;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
@@ -20,17 +20,18 @@
             align-items: center;
             justify-content: center;
             background-color: #ffffff;
-            padding: 30px;
+            padding: 20px;
             border-radius: 12px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-            max-width: none;
-            margin: 0;
+            max-width: 100%;
+            margin: 20px;
             border: 1px solid #ddd;
+            box-sizing: border-box;
         }
 
         h2 {
-            margin-bottom: 25px;
-            font-size: 32px;
+            margin-bottom: 20px;
+            font-size: 28px;
             color: #007BFF; /* Blue color for the heading */
             text-align: center;
         }
@@ -41,45 +42,48 @@
 
         label {
             display: block;
-            margin-bottom: 10px;
-            font-size: 18px;
+            margin-bottom: 8px;
+            font-size: 16px;
             color: #333;
         }
 
-        input[type="text"] {
+        input[type="text"],
+        input[type="date"],
+        input[type="time"] {
             width: 100%;
-            padding: 12px;
-            margin-bottom: 20px;
+            padding: 8px;
+            margin-bottom: 15px;
             border: 2px solid #007BFF; /* Blue border */
             border-radius: 8px;
-            font-size: 16px;
+            font-size: 14px;
             box-sizing: border-box;
-            transition: border-color 0.3s, box-shadow 0.3s;
             background-color: #f9f9f9; /* Light background for inputs */
         }
 
-        input[type="text"]:focus {
+        input[type="text"]:focus,
+        input[type="date"]:focus,
+        input[type="time"]:focus {
             border-color: #0056b3; /* Darker blue on focus */
             outline: none;
-            box-shadow: 0 0 8px rgba(98, 167, 240, 0.5);
+            box-shadow: 0 0 6px rgba(98, 167, 240, 0.5);
         }
 
         .button-group {
             display: flex;
-            gap: 15px;
+            gap: 10px;
             justify-content: center;
         }
 
         .button-group input[type="submit"],
         .button-group input[type="button"] {
-            padding: 15px;
+            padding: 8px 12px; /* Adjust padding */
             border: none;
             border-radius: 8px;
             color: #fff;
-            font-size: 18px;
+            font-size: 16px;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.3s;
-            width: 150px; /* Set a fixed width for both buttons */
+            width: 120px; /* Adjust width for both buttons */
         }
 
         .button-group input[type="submit"] {
@@ -88,7 +92,7 @@
 
         .button-group input[type="submit"]:hover {
             background-color: #218838;
-            transform: translateY(-2px);
+            transform: translateY(-1px);
         }
 
         .button-group input[type="button"] {
@@ -97,17 +101,17 @@
 
         .button-group input[type="button"]:hover {
             background-color: #c82333;
-            transform: translateY(-2px);
+            transform: translateY(-1px);
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .form-row {
             display: flex;
             gap: 15px; /* Space between the fields */
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .form-row .form-group {
@@ -120,7 +124,7 @@
 
         .form-footer {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 15px;
         }
     </style>
 </head>
@@ -142,6 +146,18 @@
                 <div class="form-group">
                     <label for="rfid_tag">RFID Tag:</label>
                     <input type="text" id="rfid_tag" name="rfid_tag" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="return_date">Rent Date:</label>
+                    <input type="date" id="return_date" name="return_date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="return_time">Rent Time:</label>
+                    <input type="time" id="return_time" name="return_time" required>
                 </div>
             </div>
 

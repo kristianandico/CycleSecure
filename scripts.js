@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
 // Function to handle form submission for Admin sign-in
 // Function to handle form submission for Admin sign-in
 function validateAdminSignIn() {
+    sessionStorage.setItem('role', 'admin'); // For admin
     var password = document.getElementById('admin-password').value;
     var adminError = document.getElementById('adminError');
 
@@ -41,6 +42,7 @@ function validateAdminSignIn() {
 
 // Function to handle form submission for Staff sign-in
 function validateStaffSignIn() {
+    sessionStorage.setItem('role', 'staff'); // For staff
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
     var staffError = document.getElementById('staffError');
@@ -59,4 +61,18 @@ function validateStaffSignIn() {
 // Function to handle logout action
 function logout() {
     window.location.href = 'index.html';
+}
+
+function redirectToMainMenu() {
+    // Assume you store the role in sessionStorage or localStorage
+    var userRole = sessionStorage.getItem('role'); // 'admin' or 'staff'
+
+    if (userRole === 'admin') {
+        window.location.href = 'admin-main-menu.html';
+    } else if (userRole === 'staff') {
+        window.location.href = 'staff-main-menu.html';
+    } else {
+        // Default to staff menu if role is not set or unknown
+        window.location.href = 'staff-main-menu.html';
+    }
 }

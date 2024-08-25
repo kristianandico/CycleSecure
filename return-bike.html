@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Return a Bike</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f0f4f8 30%, #e2e6ea 100%);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden; /* Hide scrollbars */
+        }
+        
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffffff;
+            padding: 20px; /* Adjust padding as needed */
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            max-width: none;
+            /*width: 95vw; /* Set a responsive width */
+            height: 97vh; /* Set a responsive height */
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            overflow: auto; /* Allow scrolling if content overflows */
+        }
+        
+        h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: #007BFF;
+            text-align: center;
+        }
+        
+        form {
+            display: flex;
+            flex-wrap: wrap; /* Allow fields to wrap to the next line if necessary */
+            gap: 15px; /* Space between fields */
+            justify-content: center; /* Center fields horizontally */
+            width: 100%;
+            height: 100%;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            width: calc(25% - 15px); /* Adjust width for horizontal layout and gap */
+            min-width: 200px; /* Minimum width to ensure fields are readable */
+        }
+        
+        label {
+            margin-bottom: 8px;
+            font-size: 16px;
+            color: #333;
+        }
+        
+        input[type="text"], input[type="date"], input[type="time"], textarea {
+            width: 100%;
+            padding: 10px; /* Reduced padding for a more compact layout */
+            border: 2px solid #007BFF;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+        }
+        
+        input[type="text"]:focus, input[type="date"]:focus, input[type="time"]:focus, textarea:focus {
+            border-color: #0056b3;
+            outline: none;
+            box-shadow: 0 0 8px rgba(98, 167, 240, 0.5);
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px; /* Reduced margin for a more compact layout */
+        }
+        
+        .button-group input[type="submit"], .button-group input[type="button"] {
+            padding: 8px 12px; /* Adjust padding to make buttons smaller */
+            border: none;
+            border-radius: 8px; /* Slightly rounded corners */
+            color: #fff;
+            font-size: 18px; /* Font size remains at 18px */
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            height: 50px; /* Ensure height adjusts based on content */
+            width: 150px;
+            display: inline-flex; /* Align text inside the button */
+            align-items: center; /* Center text vertically */
+            justify-content: center; /* Center text horizontally */
+        } 
+        
+        .button-group input[type="submit"] {
+            background-color: #28a745;
+        }
+        
+        .button-group input[type="submit"]:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+        
+        .button-group input[type="button"] {
+            background-color: #dc3545;
+        }
+        
+        .button-group input[type="button"]:hover {
+            background-color: #c82333;
+            transform: translateY(-2px);
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <h2>Return a Bike</h2>
+        <form action="return_bike.php" method="post">
+            <div class="form-group">
+                <label for="rfid_tag">RFID Tag:</label>
+                <input type="text" id="rfid_tag" name="rfid_tag" required>
+            </div>
+
+            <div class="form-group">
+                <label for="return_date">Return Date:</label>
+                <input type="date" id="return_date" name="return_date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="return_time">Return Time:</label>
+                <input type="time" id="return_time" name="return_time" required>
+            </div>
+
+            <div class="form-group">
+                <label for="comments">Comments:</label>
+                <textarea id="comments" name="comments" rows="8"></textarea>
+            </div>
+
+            <div class="button-group">
+                <input type="submit" value="Submit">
+                <input type="button" value="Return" onclick="redirectToMainMenu();">
+            </div>
+        </form>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -136,6 +136,7 @@ button:hover {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box; /* Ensure padding is included in width */
 }
 
 .menu-section {
@@ -144,6 +145,7 @@ button:hover {
     background-color: #f1f1f1;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Ensure padding is included in width */
 }
 
 .menu-section h1 {
@@ -209,6 +211,7 @@ button:hover {
     background-color: #f1f1f1;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Ensure padding is included in width */
 }
 
 .records-section h2 {
@@ -226,6 +229,7 @@ button:hover {
     border: 2px solid #007BFF;
     border-radius: 10px;
     padding: 15px;
+    box-sizing: border-box; /* Ensure padding is included in width */
 }
 
 .records-list li {
@@ -234,4 +238,49 @@ button:hover {
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 500px;
+    position: relative; /* Allows absolute positioning of the close button */
+}
+
+#closePopup {
+    position: absolute; /* Position relative to .popup-content */
+    top: 10px; /* Distance from the top of the popup */
+    right: 10px; /* Distance from the right of the popup */
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#closePopup {
+    display: block; /* Center the button */
+    margin: 20px auto 0; /* Margin to add space above the button */
+    background-color: #f0f0f0;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
 }

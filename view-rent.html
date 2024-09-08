@@ -79,15 +79,20 @@
         }
 
         .button-group input[type="button"] {
-            padding: 5px 10px;
+            margin: 0;
+            padding: 8px 12px; /* Adjust padding to make buttons smaller */
             border: none;
-            border-radius: 8px;
+            border-radius: 8px; /* Slightly rounded corners */
             color: #fff;
-            font-size: 14px;
+            font-size: 18px; /* Font size remains at 18px */
             cursor: pointer;
             transition: background-color 0.3s, transform 0.3s;
             background-color: #dc3545;
-            margin: 0;
+            height: 50px; /* Ensure height adjusts based on content */
+            width: 150px;
+            display: inline-flex; /* Align text inside the button */
+            align-items: center; /* Center text vertically */
+            justify-content: center; /* Center text horizontally */
         }
 
         .button-group input[type="button"]:hover {
